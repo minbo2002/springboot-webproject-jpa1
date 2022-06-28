@@ -9,9 +9,9 @@ public class SpringbootWebprojectJpa1Application {
     public static void main(String[] args) {
 
         Hello hello = new Hello();
-        hello.setDate("hello");
+        hello.setData("hello");
 
-        String data = hello.getDate();
+        String data = hello.getData();
 
         System.out.println("data : " + data);
 
