@@ -23,4 +23,5 @@ public class Member {
 
     @OneToMany(mappedBy = "member")  // mappedBy : 매핑하는게 아니고 매핑되는 거울이라는 의미. 즉 읽기 전용.
     private List<Order> orders = new ArrayList<>();
+
 }
