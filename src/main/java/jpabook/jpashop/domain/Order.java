@@ -1,6 +1,9 @@
 package jpabook.jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")  // DB에 order by 라는 예약어가 있어서 관례상 테이블명을 orders로 사용
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id @GeneratedValue
@@ -49,8 +53,16 @@ public class Order {
         delivery.setOrder(this);
     }
 
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
     /*
-        생성 메소드
+        생성 메소드 (주문 생성)
      */
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
@@ -95,4 +107,5 @@ public class Order {
 
         return totalPrice;
     }
+
 }
