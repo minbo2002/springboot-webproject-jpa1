@@ -28,7 +28,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
-    // 회원등록 데이터를 실제로 등록하는곳
+    // 회원등록 데이터를 파싱하는곳
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result) {
 
@@ -47,6 +47,7 @@ public class MemberController {
         return "redirect:/";
     }
 
+    // 회원 목록 화면
     @GetMapping("/members")
     public String list(Model model) {
 
