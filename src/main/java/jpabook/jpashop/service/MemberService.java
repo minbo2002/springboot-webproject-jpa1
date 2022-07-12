@@ -55,4 +55,15 @@ public class MemberService {
 
         return memberRepository.findOne(memberId);
     }
+    
+    /*
+        회원 수정
+     */
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id); // 영속성 상태
+        member.setName(name);  // 값 set
+
+        // Transaction에 의해 commit
+    }
 }
